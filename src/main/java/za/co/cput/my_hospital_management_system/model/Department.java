@@ -3,6 +3,7 @@ package za.co.cput.my_hospital_management_system.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.Set;
 import java.util.regex.Pattern;
 
 @Entity
