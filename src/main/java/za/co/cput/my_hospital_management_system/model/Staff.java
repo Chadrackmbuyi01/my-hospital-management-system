@@ -3,12 +3,10 @@ package za.co.cput.my_hospital_management_system.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.util.Set;
-
 @Entity
 @Data
-@Table(name = "doctors")
-public class Doctor {
+@Table(name = "staff")
+public class Staff {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,15 +24,9 @@ public class Doctor {
     private String phone;
 
     @Column(nullable = false)
-    private String speciality;
+    private String position;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "department_id")
     private Department department;
-
-    @OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL)
-    private Set<Appointment> appointments;
-
-    @OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL)
-    private Set<Prescription> prescriptions;
 }
